@@ -1,0 +1,1 @@
+# equipment_for_living_week1
