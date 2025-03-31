@@ -5,7 +5,7 @@ var sauron_canvas = document.getElementById("sauron");
 var sauron_ctx = sauron_canvas.getContext("2d");
 
 lone_eye = new Eye(sauron_canvas.width / 2, sauron_canvas.height / 2, 0.1,
-                   Math.min(sauron_canvas.width, sauron_canvas.height) * 0.1);
+                   Math.min(sauron_canvas.width, sauron_canvas.height) * 0.1, 'grey');
 
 sauron_canvas.addEventListener(
     'mousemove', (e) => { lone_eye.UpdateMouse(e.offsetX, e.offsetY); });

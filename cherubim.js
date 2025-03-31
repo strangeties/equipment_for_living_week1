@@ -13,13 +13,23 @@ canvas.addEventListener('mousemove', (e) => {
     }
 });
 
+function GetRandomColor() {
+    var color = "#"
+    for (var i = 0; i < 3; i++) {
+        var tmp = "00" + Math.floor(Math.random() * 256).toString(16);
+        color+=tmp.substr(-2);
+    }
+    return color;
+}
+
 function Start() {
     for (let i = 0; i < NUM_EYES; i++) {
         eyes.push(new Eye(Math.random() * sauron_canvas.width,
                           Math.random() * sauron_canvas.height,
                           Math.random() * 0.1 + 0.11,
                           Math.min(sauron_canvas.width, sauron_canvas.height) *
-                              (0.04 + Math.random() * 0.04)));
+                              (0.04 + Math.random() * 0.04),
+                          GetRandomColor()));
     }
 
     for (let i = 0; i < NUM_EYES; i++) {

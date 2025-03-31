@@ -1,5 +1,5 @@
 class Eye {
-    constructor(center_x, center_y, lid_arc_angle, radius) {
+    constructor(center_x, center_y, lid_arc_angle, radius, eyeball_color) {
         this.x = center_x;
         this.y = center_y;
         this.theta = lid_arc_angle;
@@ -9,7 +9,8 @@ class Eye {
         this.mouse_y = -1;
         
         this.pupil_color = 'black';
-        this.eyeball_color = 'grey';
+//        this.eyeball_color = 'grey';
+        this.eyeball_color = eyeball_color;
         this.whites_color = 'white';
     }
     
