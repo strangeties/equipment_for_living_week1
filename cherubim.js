@@ -17,7 +17,7 @@ function Start() {
     for (let i = 0; i < NUM_EYES; i++) {
         eyes.push(new Eye(Math.random() * sauron_canvas.width,
                           Math.random() * sauron_canvas.height,
-                          Math.random() * 0.1 + 0.05,
+                          Math.random() * 0.1 + 0.11,
                           Math.min(sauron_canvas.width, sauron_canvas.height) *
                               (0.04 + Math.random() * 0.04)));
     }

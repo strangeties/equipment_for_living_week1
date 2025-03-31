@@ -7,6 +7,10 @@ class Eye {
 
         this.mouse_x = -1;
         this.mouse_y = -1;
+        
+        this.pupil_color = 'black';
+        this.eyeball_color = 'grey';
+        this.whites_color = 'white';
     }
     
     Draw(ctx) {
@@ -21,7 +25,7 @@ class Eye {
                 (1.0 - this.theta) * Math.PI);
         ctx.lineWidth = 2;
         ctx.stroke();
-        ctx.fillStyle = "white";
+        ctx.fillStyle = this.whites_color;
         ctx.fill();
 
         // eye distances
@@ -31,7 +35,7 @@ class Eye {
         // eyeball
         ctx.beginPath();
         ctx.arc(this.x, this.y, outer_eye_radius, 0, 2.0 * Math.PI);
-        ctx.fillStyle = "grey";
+        ctx.fillStyle = this.eyeball_color;
         ctx.fill();
         // pupil
         let mouse_distance_x = this.mouse_x - this.x;
@@ -57,12 +61,13 @@ class Eye {
         }
         ctx.beginPath();
         ctx.arc(pupil_x, pupil_y, pupil_radius, 0, 2.0 * Math.PI);
-        ctx.fillStyle = "black";
+        ctx.fillStyle = this.pupil_color;
         ctx.fill();
 
         // eye lashes
-        for (let i = 0; i < 7; i++) {
-            let phi = (i + 2) * (1.0 - 2.0 * this.theta) / 8;
+        const NUM_LASHES = 7;
+        for (let i = 0; i < NUM_LASHES; i++) {
+            let phi = this.theta + (i + 1) * (1.0 - 2.0 * this.theta) / (NUM_LASHES + 1);
             ctx.beginPath();
             ctx.moveTo(this.x - 1.1 * this.radius * Math.cos(phi * Math.PI),
                        this.y + h -
