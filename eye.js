@@ -5,10 +5,10 @@ class Eye {
         this.theta = lid_arc_angle;
         this.radius = radius;
 
-        this.mouse_x = center_x;
-        this.mouse_y = center_y;
+        this.mouse_x = -1;
+        this.mouse_y = -1;
     }
-
+    
     Draw(ctx) {
         let h = Math.sin(this.theta * Math.PI) * this.radius;
 
@@ -21,6 +21,8 @@ class Eye {
                 (1.0 - this.theta) * Math.PI);
         ctx.lineWidth = 2;
         ctx.stroke();
+        ctx.fillStyle = "white";
+        ctx.fill();
 
         // eye distances
         let outer_eye_radius = (this.radius - h) * 0.8;
