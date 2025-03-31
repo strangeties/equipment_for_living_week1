@@ -9,12 +9,11 @@ class Eye {
         this.mouse_y = -1;
         
         this.pupil_color = 'black';
-//        this.eyeball_color = 'grey';
         this.eyeball_color = eyeball_color;
         this.whites_color = 'white';
     }
     
-    Draw(ctx) {
+    DrawOpenEye(ctx) {
         let h = Math.sin(this.theta * Math.PI) * this.radius;
 
         ctx.beginPath();
@@ -77,6 +76,39 @@ class Eye {
                        this.y + h -
                            1.3 * this.radius * Math.sin(phi * Math.PI));
             ctx.stroke();
+        }
+    }
+    
+    DrawClosedEye(ctx) {
+        let h = Math.sin(this.theta * Math.PI) * this.radius;
+
+        // lower lid
+        ctx.beginPath();
+        ctx.arc(this.x, this.y - h, this.radius, this.theta * Math.PI,
+                (1.0 - this.theta) * Math.PI);
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        // eye lashes
+        const NUM_LASHES = 7;
+        for (let i = 0; i < NUM_LASHES; i++) {
+            let phi = this.theta + (i + 1) * (1.0 - 2.0 * this.theta) / (NUM_LASHES + 1);
+            ctx.beginPath();
+            ctx.moveTo(this.x - 1.1 * this.radius * Math.cos(phi * Math.PI),
+                       this.y - h +
+                           1.1 * this.radius * Math.sin(phi * Math.PI));
+            ctx.lineTo(this.x - 1.3 * this.radius * Math.cos(phi * Math.PI),
+                       this.y - h +
+                           1.3 * this.radius * Math.sin(phi * Math.PI));
+            ctx.stroke();
+        }
+    }
+    
+    Draw(ctx) {
+        if (this.mouse_x < 0 || this.mouse_y < 0) {
+            this.DrawClosedEye(ctx);
+        } else {
+            this.DrawOpenEye(ctx);
         }
     }
 

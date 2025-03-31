@@ -13,10 +13,16 @@ canvas.addEventListener('mousemove', (e) => {
     }
 });
 
+canvas.addEventListener('mouseout', (e) => {
+    for (let i = 0; i < NUM_EYES; i++) {
+        eyes[i].UpdateMouse(-1, -1);
+    }
+});
+
 function GetRandomColor() {
     var color = "#"
     for (var i = 0; i < 3; i++) {
-        var tmp = "00" + Math.floor(Math.random() * 256).toString(16);
+        var tmp = "00" + Math.floor(Math.random() * 200 + 56).toString(16);
         color+=tmp.substr(-2);
     }
     return color;
