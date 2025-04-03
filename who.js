@@ -6,7 +6,7 @@ const otherText = [
     "Whose guilt can my anxieties assuage?",
     "Whose outlook can my joy brighten?",
     "Whose curiosity can my wonder pique?",
-    "Whose wilderness can my flights awaken?"
+    "Whose wilderness can my highs awaken?"
 ];
 
 let last_v = -1;
