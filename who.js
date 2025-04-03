@@ -9,9 +9,16 @@ const otherText = [
     "Whose wilderness can my flights awaken?"
 ];
 
+let last_v = -1;
+
 span.addEventListener('mousemove', (e) => {
-    let v = Math.floor(e.offsetX / 20.0) + Math.floor(e.offsetY / 4.0);
-    let i = v % otherText.length;
+        let v = Math.floor(e.offsetX / 20.0);
+    if (v == last_v) {
+        return;
+    }
+    last_v = v;
+    let offset = Math.floor(Math.random() * otherText.length);
+    let i = (v + offset) % otherText.length;
     span.textContent = otherText[i];
 });
 
