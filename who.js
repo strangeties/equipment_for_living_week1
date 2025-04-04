@@ -3,10 +3,12 @@ const originalText = span.textContent;
 
 const otherText = [
     "Whose voice can my rage embolden?", "Whose grief can my tears transform?",
-    "Whose guilt can my anxieties assuage?",
+    "Whose guilt can my imperfections allay?",
     "Whose outlook can my joy brighten?",
     "Whose curiosity can my wonder pique?",
-    "Whose wilderness can my highs awaken?"
+    "Whose inner wilds can my highs awaken?",
+    "Whose past can my presence recolor?",
+    "Whose defense can my uncertainty disarm?"
 ];
 
 let last_v = -1;
